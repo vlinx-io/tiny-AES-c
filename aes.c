@@ -570,31 +570,3 @@ void AES_CTR_xcrypt_buffer(struct AES_ctx* ctx, uint8_t* buf, uint32_t length)
 
 #endif // #if defined(CTR) && (CTR == 1)
 
-
-
-uint8_t* PKCS5Padding(uint8_t* data, uint32_t length){
-
-  uint8_t mod = length %  AES_BLOCKLEN;
-  uint8_t padding = BLOCK_SIZE - mod;
-
-
-  uint8_t result[length + padding];
-
-  memcpy(result,data,length);
-
-  for(int i=length;i<length+padding;i++){
-    result[i] = padding;
-  }
-
-  return result;
-}
-
-
-// test sizeof
-// test free in jdk building
-// test alloc large memory data on jdk building
-// test that on mac
-uint8_t* InvPKCS5Padding(uint8_t* data,uint32_t length){
-
-}
-

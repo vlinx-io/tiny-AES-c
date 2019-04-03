@@ -10,6 +10,8 @@
 
 #include "aes.h"
 
+#define AES256
+
 
 static void phex(uint8_t* str);
 static int test_encrypt_cbc(void);
